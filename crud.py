@@ -35,7 +35,6 @@ def show_all_users():
     
     return User.query.all()
 
-
 def get_user_by_id(user_id):
     """Returns the movie with corresponding movie id. """
 

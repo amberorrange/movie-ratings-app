@@ -23,6 +23,28 @@ def create_movie(title, overview, release_date, poster_path):
 
     return movie
 
+def show_all_movies():
+    """Returns all movies from database. """
+
+    movies = Movie.query.all()
+
+    return movies
+
+def show_all_users():
+    """Returns alll users. """
+    
+    return User.query.all()
+
+
+def get_user_by_id(user_id):
+    """Returns the movie with corresponding movie id. """
+
+    return User.query.get(user_id)
+
+def get_user_by_email(user_email):
+    """Return the user with the email addres user_email."""
+    return User.query.filter(User.email == user_email).first()
+
 def create_rating(user, movie, score):
     """Create and return a rating. score: int, user and movie are objects."""
 
@@ -32,6 +54,14 @@ def create_rating(user, movie, score):
     db.session.commit()
 
     return rating
+
+
+def get_movie_by_id(movie_id):
+    """Returns the movie with corresponding movie id. """
+
+    movie = Movie.query.get(movie_id)
+
+    return movie
 
 
 if __name__ == '__main__':
